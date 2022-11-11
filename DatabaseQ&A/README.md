@@ -22,7 +22,10 @@ SELECT first_name, last_name FROM users;
 
 1. Select users whose id is either 3,2 or 4
 - Please return at least: all user fields
-- Answer :
+
+
+
+**- Answer -**
 
 select id,first_name,last_name,email,status,created from testest22.users where id in(2,3,4);
 
@@ -30,7 +33,7 @@ select id,first_name,last_name,email,status,created from testest22.users where i
 2. Count how many basic and premium listings each active user has
 - Please return at least: first_name, last_name, basic, premium
 
-Answer :
+**- Answer -**
 
 WITH
 TABLE1 AS ( SELECT u.id,u.first_name,u.last_name,count(l.status) basic FROM testest22.users u
@@ -52,6 +55,8 @@ select TABLE1.FIRST_NAME,TABLE1.LAST_NAME, IFNULL(TABLE1.basic,0) BASIC,IFNULL(T
 - Please return at least: first_name, last_name, basic, premium
 
 
+**- Answer -**
+
 WITH
 TABLE1 AS ( SELECT u.id,u.first_name,u.last_name,count(l.status) basic FROM testest22.users u
 inner join testest22.listings l
@@ -69,6 +74,9 @@ select TABLE1.FIRST_NAME,TABLE1.LAST_NAME, IFNULL(TABLE1.basic,0) BASIC,IFNULL(T
 4. How much revenue has each active vendor made in 2013
 - Please return at least: first_name, last_name, currency, revenue
 
+
+**- Answer -**
+
 select u.first_name , u.last_name , c.currency,SUM(c.price) revenue from testest22.users u inner join
 testest22.listings l on u.id = l.user_id
 inner join testest22.clicks c on l.id = c.listing_id
@@ -80,10 +88,13 @@ group by u.first_name, u.last_name , c.currency;
 5. Insert a new click for listing id 3, at $4.00
 - Find out the id of this new click. Please return at least: id
 
+**- Answer -**
 
-- insert into testest22.clicks(listing_id,price,currency,created) values (3,4.00,'USD',now());
+a)
+insert into testest22.clicks(listing_id,price,currency,created) values (3,4.00,'USD',now());
 
-- select c.id from testest22.clicks c where
+b)
+select c.id from testest22.clicks c where
 c.price = 4.00 and c.currency = 'USD' and c.listing_id = 3
 and c.created =(select max(created) from testest22.clicks);
 
@@ -93,6 +104,11 @@ and c.created =(select max(created) from testest22.clicks);
 6. Show listings that have not received a click in 2013
 - Please return at least: listing_name
 
+**- Answer -**
+
+select l.id,l.name from testest22.listings l where l.name not in
+(select l.name from testest22.listings l inner join testest22.clicks c on
+l.id = c.listing_id where YEAR(c.created) = 2013);
 
 
 
