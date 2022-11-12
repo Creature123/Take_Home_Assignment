@@ -118,7 +118,9 @@ l.id = c.listing_id where YEAR(c.created) = 2013);
 **- Answer -**
 
 <!-- I have got a confusion here whether I have to find out distinct listings and distinct user or
-only distinct user and multiple listing id with different timeline -->
+only distinct user and multiple listing id with different timeline
+
+Please consider the Answer accordingly-->
 
 <!-- Asssuming distinct user id and distinct Listing id e.g.
 In the year 2013 : total distinct listing ID was 3 i.e
@@ -136,7 +138,7 @@ group by date;
 
 
 
-<!-- Assuming only distinct User id but for a year there are multiple listings with different timeline
+<!-- Assuming only distinct User id but for a year there can be multiple listings with multiple clicks
 
 for example
 In the year 2013 there are 10 listings but only effected users are 1,2
@@ -153,3 +155,11 @@ group by year;
 
 8. Return a comma separated string of listing names for all active vendors
 - Please return at least: first_name, last_name, listing_names
+
+
+**-- Answer --**
+
+select u.first_name , u.last_name ,GROUP_CONCAT(l.name) listing_names from testest22.users u inner join testest22.listings l
+on u.id = l.user_id
+where u.status = 2
+GROUP BY u.first_name,u.last_name;
