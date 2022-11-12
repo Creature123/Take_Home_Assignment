@@ -17,8 +17,7 @@ SELECT first_name, last_name FROM users;
 
 **— Test Starts Here —**
 
-#  for my own testing purpose user - 1=disabled; 2=enabled ( status );
-# listing - 2=basic; 3=premium  ( status );
+
 
 1. Select users whose id is either 3,2 or 4
 - Please return at least: all user fields
