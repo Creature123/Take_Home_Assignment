@@ -115,6 +115,41 @@ l.id = c.listing_id where YEAR(c.created) = 2013);
 7. For each year show number of listings clicked and number of vendors who owned these listings
 - Please return at least: date, total_listings_clicked, total_vendors_affected
 
+**- Answer -**
+
+<!-- I have got a confusion here whether I have to find out distinct listings and distinct user or
+only distinct user and multiple listing id with different timeline -->
+
+<!-- Asssuming distinct user id and distinct Listing id e.g.
+In the year 2013 : total distinct listing ID was 3 i.e
+select distinct c.listing_id from testest22.clicks c where YEAR(c.created) = 2013 (6,2,10)
+and the effected user ids are 1 and 2 since for listing 10 we do not have any user id
+ -->
+
+select distinct date,count(table1.total_listings_clicked) as total_listings_clicked,count(distinct table1.user_id) total_vendors_affected from
+(select l1.year as date,id total_listings_clicked,l1.user_id fROM
+(select distinct l.id as id,YEAR(c.created) as year,l.user_id from testest22.listings l
+inner join testest22.clicks c on l.id = c.listing_id
+group by l.id,c.created,l.user_id) as l1) as table1
+group by date;
+
+
+
+
+<!-- Assuming only distinct User id but for a year there are multiple listings with different timeline
+
+for example
+In the year 2013 there are 10 listings but only effected users are 1,2
+-->
+
+select l1.year as date,SUM(l1.id) total_listings_clicked,count(distinct user) total_vendors_affected FROM
+(select  count(l.id) as id,YEAR(c.created) as year,l.user_id as user from testest22.listings l
+ inner join testest22.clicks c on l.id = c.listing_id
+group by l.id,c.created,l.user_id) l1
+group by year;
+
+
+
 
 8. Return a comma separated string of listing names for all active vendors
 - Please return at least: first_name, last_name, listing_names
