@@ -15,11 +15,18 @@ namespace FeedUploader.Service.Implementation
         private readonly IDataReader<SoftwareAdviceData> _datareader;
 
         public SoftwareAdviceService(ILoggerFactory loggerFactory, IDataReader<SoftwareAdviceData> reader)
-		{
+        {
             _logger = loggerFactory.CreateLogger<SoftwareAdviceService>();
             _datareader = reader;
 
         }
+
+        //public SoftwareAdviceService(IDataReader<SoftwareAdviceData> reader)
+        //{
+        //    //_logger = loggerFactory.CreateLogger<SoftwareAdviceService>();
+        //    _datareader = reader;
+
+        //}
 
         public async Task<SoftwareAdviceData> ExtractData(string filepath)
         {

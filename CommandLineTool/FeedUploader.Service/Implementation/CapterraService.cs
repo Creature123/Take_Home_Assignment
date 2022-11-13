@@ -18,21 +18,32 @@ namespace FeedUploader.Service.Implementation
         private readonly ILogger<CapterraService> _logger;
         private readonly IDataReader<CapterraData> _datareader;
 
-        public CapterraService(ILoggerFactory loggerFactory,IDataReader<CapterraData> reader)
-		{
+        #region CapterraService Constructor
+        public CapterraService(ILoggerFactory loggerFactory, IDataReader<CapterraData> reader)
+        {
             _logger = loggerFactory.CreateLogger<CapterraService>();
             _datareader = reader;
-		}
+        }
+        #endregion
 
+
+        // Data Reader section to read data from yaml file
+        /// <summary>
+        ///   Here JsonExtractFile method can be calle based on filepath section
+        /// </summary>
+        /// <param name="filepath">User input</param>
+        /// <returns>This will return Deserialized object from yaml input file</returns>
         public async Task<List<CapterraData>>  ExtractData(string filepath)
         {
-           // DataReader<CapterraData> _datareader = new DataReader<CapterraData>();
+           
             var fileExtension = valiDateFileExtension(filepath);
             if (fileExtension.Equals(UtilConstant.yaml))
             {
-                //_logger.LogDebug("Data extracting");
-                return await Task.Run(() =>
+                
+                var result = await Task.Run(() =>
                  _datareader.ExtractYamlFile(filepath));
+
+                return result;
             }
             else
             {
@@ -41,6 +52,12 @@ namespace FeedUploader.Service.Implementation
 
         }
 
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="datadescription">List of data will be passed after Extracting the data from file</param>
+        /// <returns>This method will print the extracted data from the file</returns>
         public async Task PrintReader(List<CapterraData> datadescription)
         {
             await Task.Run(() =>
@@ -61,7 +78,12 @@ namespace FeedUploader.Service.Implementation
             }
         }
 
-        private string valiDateFileExtension(string filepath)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="filepath"></param>
+        /// <returns>return file extension</returns>
+        public string valiDateFileExtension(string filepath)
         {
             try
             {
@@ -72,7 +94,7 @@ namespace FeedUploader.Service.Implementation
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("File Not found! during extracting the extension of the file");
-               // _logger.LogError("File Not found! during extracting the extension of the file");
+              
                 return null;
             }
 

@@ -22,36 +22,49 @@ namespace FeedUploaderCLI
             var container = Startup.ConfigureService();
 
             var logger = container.GetService<ILoggerFactory>().CreateLogger<Program>();
-            //logger.LogDebug("Starting Application");
+          
 
             var _capterraservice = container.GetRequiredService<ICapterraService>();
             var _softwareservice = container.GetRequiredService<ISoftwareAdviceService>();
 
-            //CapterraService data = new CapterraService();
-            //SoftwareAdviceService sdata = new SoftwareAdviceService();
-           
+
+            /// <summary>
+            /// Command Creation Started
+            ///
+            /// <CLItoolname> <import> <serviceName> [--FileOptions] [FilePath]
+            /// Used Nuget Package System.CommandLine 
+            /// </summary>
+
+
+            #region Command Section Started
+
+            // root Command
             var rootCommand = new RootCommand(description: "Command Line tool to import Project file from different sources :");
 
+            // import Sub Command 
             var importCommand = new Command("import", "Use this command to import files");
             importCommand.AddAlias("i");
             rootCommand.Add(importCommand);
 
+            // File Option creation and made it mandatory
             var fileOption = new Option<string>
                ("--filepath", "An option to pass filepath");
             fileOption.IsRequired = true;
             fileOption.AddAlias("--f");
             fileOption.AddAlias("--file");
 
+            // Capterra Sub command <serviceName>
             var capterraCommand = new Command("capterra", "Use this command to import files from capterra site");
             capterraCommand.AddAlias("-c");
             capterraCommand.AddOption(fileOption);
 
-
+            // SoftwareAdvice Sub command <serviceName>
             var softwareadviceCommand = new Command("softwareadvice", "Use this command to import files from softwaredevice site");
             softwareadviceCommand.AddAlias("-s");
             softwareadviceCommand.AddOption(fileOption);
 
-
+            // Adding both Sub command under Import command
+            /// command will work like  ==>  import [capterra/-c] / [softwareadvice/-s]
             importCommand.Add(
                 capterraCommand
                 );
@@ -60,6 +73,7 @@ namespace FeedUploaderCLI
                 softwareadviceCommand
                 );
 
+            // addding the Handler Section to work with the command line argument which user will pass
             capterraCommand.SetHandler(async (optionArgumentvalue) =>
             {
                // Console.WriteLine($"Capterra File option {optionArgumentvalue}");
@@ -77,7 +91,7 @@ namespace FeedUploaderCLI
                 }
             }, fileOption);
 
-
+            // addding the Handler Section to work with the command line argument which user will pass
             softwareadviceCommand.SetHandler(async (argument) =>
             {
                // Console.WriteLine($"SoftwareAdvice File option {argument}");
@@ -96,6 +110,8 @@ namespace FeedUploaderCLI
             }, fileOption);
 
             return await rootCommand.InvokeAsync(args);
+
+            #endregion
         }
     }
 }

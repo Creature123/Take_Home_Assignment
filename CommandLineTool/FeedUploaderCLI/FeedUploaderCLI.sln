@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FeedUploaderCLI", "FeedUplo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FeedUploader.Service", "..\FeedUploader.Service\FeedUploader.Service.csproj", "{47C9E81E-B4E8-4701-8928-3AD08A3F58F4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FeedUploader.Test", "..\FeedUploader.Test\FeedUploader.Test.csproj", "{005DC568-99B6-4F25-BE45-ECF38734A5B9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{47C9E81E-B4E8-4701-8928-3AD08A3F58F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{47C9E81E-B4E8-4701-8928-3AD08A3F58F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{47C9E81E-B4E8-4701-8928-3AD08A3F58F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{005DC568-99B6-4F25-BE45-ECF38734A5B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{005DC568-99B6-4F25-BE45-ECF38734A5B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{005DC568-99B6-4F25-BE45-ECF38734A5B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{005DC568-99B6-4F25-BE45-ECF38734A5B9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

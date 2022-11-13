@@ -11,11 +11,12 @@ namespace FeedUploaderCLI
 	{
 		public static IServiceProvider ConfigureService()
 		{
+			// Adding App Service as DI
 			var provider = new ServiceCollection()
 				.AddLogging(configure => configure.AddConsole().SetMinimumLevel(LogLevel.Debug))
                 .AddScoped<ICapterraService, CapterraService>()
 				.AddScoped<ISoftwareAdviceService, SoftwareAdviceService>()
-				.AddTransient(typeof(IDataReader<>), typeof(DataReader<>))
+				.AddScoped(typeof(IDataReader<>), typeof(DataReader<>))
 				.BuildServiceProvider();
 			
 			return provider;
