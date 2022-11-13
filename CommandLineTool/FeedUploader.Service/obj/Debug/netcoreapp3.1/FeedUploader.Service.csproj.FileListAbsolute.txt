@@ -1,0 +1,9 @@
+/Users/souravdas/Gartner/CodeRepo/Take_Home_Assignment/CommandLineTool/FeedUploader.Service/bin/Debug/netcoreapp3.1/FeedUploader.Service.deps.json
+/Users/souravdas/Gartner/CodeRepo/Take_Home_Assignment/CommandLineTool/FeedUploader.Service/bin/Debug/netcoreapp3.1/FeedUploader.Service.dll
+/Users/souravdas/Gartner/CodeRepo/Take_Home_Assignment/CommandLineTool/FeedUploader.Service/bin/Debug/netcoreapp3.1/FeedUploader.Service.pdb
+/Users/souravdas/Gartner/CodeRepo/Take_Home_Assignment/CommandLineTool/FeedUploader.Service/obj/Debug/netcoreapp3.1/FeedUploader.Service.csprojAssemblyReference.cache
+/Users/souravdas/Gartner/CodeRepo/Take_Home_Assignment/CommandLineTool/FeedUploader.Service/obj/Debug/netcoreapp3.1/FeedUploader.Service.AssemblyInfoInputs.cache
+/Users/souravdas/Gartner/CodeRepo/Take_Home_Assignment/CommandLineTool/FeedUploader.Service/obj/Debug/netcoreapp3.1/FeedUploader.Service.AssemblyInfo.cs
+/Users/souravdas/Gartner/CodeRepo/Take_Home_Assignment/CommandLineTool/FeedUploader.Service/obj/Debug/netcoreapp3.1/FeedUploader.Service.csproj.CoreCompileInputs.cache
+/Users/souravdas/Gartner/CodeRepo/Take_Home_Assignment/CommandLineTool/FeedUploader.Service/obj/Debug/netcoreapp3.1/FeedUploader.Service.dll
+/Users/souravdas/Gartner/CodeRepo/Take_Home_Assignment/CommandLineTool/FeedUploader.Service/obj/Debug/netcoreapp3.1/FeedUploader.Service.pdb

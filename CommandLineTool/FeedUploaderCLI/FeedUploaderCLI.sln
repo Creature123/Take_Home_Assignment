@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 25.0.1704.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FeedUploaderCLI", "FeedUploaderCLI.csproj", "{D1B4FFEC-37E4-4E10-B3F7-699D0D246F63}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FeedUploader.Service", "..\FeedUploader.Service\FeedUploader.Service.csproj", "{47C9E81E-B4E8-4701-8928-3AD08A3F58F4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D1B4FFEC-37E4-4E10-B3F7-699D0D246F63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1B4FFEC-37E4-4E10-B3F7-699D0D246F63}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1B4FFEC-37E4-4E10-B3F7-699D0D246F63}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1B4FFEC-37E4-4E10-B3F7-699D0D246F63}.Release|Any CPU.Build.0 = Release|Any CPU
+		{47C9E81E-B4E8-4701-8928-3AD08A3F58F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47C9E81E-B4E8-4701-8928-3AD08A3F58F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47C9E81E-B4E8-4701-8928-3AD08A3F58F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47C9E81E-B4E8-4701-8928-3AD08A3F58F4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DE46111B-C48E-43CB-8259-E787CF7677C9}
+	EndGlobalSection
+EndGlobal
