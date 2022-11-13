@@ -17,6 +17,8 @@ namespace FeedUploaderCLI
         static async  Task<int> Main(string[] args)
         {
 
+
+            // Added Dependency Injection
             var container = Startup.ConfigureService();
 
             var logger = container.GetService<ILoggerFactory>().CreateLogger<Program>();
