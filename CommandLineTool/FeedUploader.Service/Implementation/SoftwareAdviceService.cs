@@ -4,24 +4,32 @@ using System.IO;
 using System.Threading.Tasks;
 using FeedUploader.Service.Interfaces;
 using FeedUploader.Service.Models;
+using Microsoft.Extensions.Logging;
 
 namespace FeedUploader.Service.Implementation
 {
 	public class SoftwareAdviceService : DataReader<SoftwareAdviceData>, ISoftwareAdviceService
 	{
-		public SoftwareAdviceService()
+
+        private readonly ILogger<SoftwareAdviceService> _logger;
+        private readonly IDataReader<SoftwareAdviceData> _datareader;
+
+        public SoftwareAdviceService(ILoggerFactory loggerFactory, IDataReader<SoftwareAdviceData> reader)
 		{
-		}
+            _logger = loggerFactory.CreateLogger<SoftwareAdviceService>();
+            _datareader = reader;
+
+        }
 
         public async Task<SoftwareAdviceData> ExtractData(string filepath)
         {
-            DataReader<SoftwareAdviceData> s = new DataReader<SoftwareAdviceData>();
+          //  DataReader<SoftwareAdviceData> s = new DataReader<SoftwareAdviceData>();
             var fileExtension = valiDateFileExtension(filepath);
             if (fileExtension.Equals(UtilConstant.json))
             {
 
                 return await Task.Run(() =>
-                 s.ExtractJsonFile(filepath));
+                 _datareader.ExtractJsonFile(filepath));
             }
             else
             {

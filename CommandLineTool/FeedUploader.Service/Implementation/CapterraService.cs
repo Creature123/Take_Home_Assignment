@@ -5,6 +5,7 @@ using System.Reflection.PortableExecutable;
 using System.Threading.Tasks;
 using FeedUploader.Service.Interfaces;
 using FeedUploader.Service.Models;
+using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using YamlDotNet.Core;
 using YamlDotNet.Serialization;
@@ -14,19 +15,24 @@ namespace FeedUploader.Service.Implementation
 {
 	public class CapterraService : DataReader<CapterraData>, ICapterraService
 	{
-		public CapterraService()
+        private readonly ILogger<CapterraService> _logger;
+        private readonly IDataReader<CapterraData> _datareader;
+
+        public CapterraService(ILoggerFactory loggerFactory,IDataReader<CapterraData> reader)
 		{
+            _logger = loggerFactory.CreateLogger<CapterraService>();
+            _datareader = reader;
 		}
 
         public async Task<List<CapterraData>>  ExtractData(string filepath)
         {
-            DataReader<CapterraData> s = new DataReader<CapterraData>();
+           // DataReader<CapterraData> _datareader = new DataReader<CapterraData>();
             var fileExtension = valiDateFileExtension(filepath);
             if (fileExtension.Equals(UtilConstant.yaml))
             {
-
+                //_logger.LogDebug("Data extracting");
                 return await Task.Run(() =>
-                 s.ExtractYamlFile(filepath));
+                 _datareader.ExtractYamlFile(filepath));
             }
             else
             {
@@ -66,6 +72,7 @@ namespace FeedUploader.Service.Implementation
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("File Not found! during extracting the extension of the file");
+               // _logger.LogError("File Not found! during extracting the extension of the file");
                 return null;
             }
 
