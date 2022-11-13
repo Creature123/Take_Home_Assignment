@@ -1,7 +1,7 @@
 ﻿using System;
 namespace FeedUploader.Service.Models
 {
-	public class Datadescription
+	public class CapterraData
 	{
         public string tags { get; set; }
         public string name { get; set; }

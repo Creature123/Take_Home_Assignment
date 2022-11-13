@@ -1,6 +1,8 @@
 ﻿using System;
 using System.CommandLine;
 using System.Threading.Tasks;
+using FeedUploader.Service.Implementation;
+using FeedUploader.Service.Models;
 
 namespace FeedUploaderCLI
 {
@@ -8,6 +10,10 @@ namespace FeedUploaderCLI
     {
         static async  Task<int> Main(string[] args)
         {
+
+            CapterraService data = new CapterraService();
+            SoftwareAdviceService sdata = new SoftwareAdviceService();
+           
             var rootCommand = new RootCommand(description: "Command Line tool to import Project file from different sources :");
 
             var importCommand = new Command("import", "Use this command to import files");
@@ -44,15 +50,39 @@ namespace FeedUploaderCLI
 
 
 
-            capterraCommand.SetHandler((optionArgumentvalue) =>
+            capterraCommand.SetHandler(async (optionArgumentvalue) =>
             {
                 Console.WriteLine($"Capterra File option {optionArgumentvalue}");
+
+                var result = await data.ExtractData(optionArgumentvalue);
+                if(result.Count> 0)
+                {
+                   await data.PrintReader(result);
+                }
+                else
+                {
+                    Console.BackgroundColor = ConsoleColor.Red;
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.WriteLine("Something went Wrong");
+                }
             }, fileOption);
 
 
-            softwareadviceCommand.SetHandler((optionArgumentvalue) =>
+            softwareadviceCommand.SetHandler(async (argument) =>
             {
-                Console.WriteLine($"softwareadvice File option {optionArgumentvalue}");
+                Console.WriteLine($"SoftwareAdvice File option {argument}");
+                
+                var result = await sdata.ExtractData(argument.ToString());
+                if (result != null)
+                {
+                    await sdata.PrintReader(result);
+                }
+                else
+                {
+                    Console.BackgroundColor = ConsoleColor.Red;
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.WriteLine("Something went Wrong");
+                }
             }, fileOption);
 
 
