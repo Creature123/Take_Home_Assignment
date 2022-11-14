@@ -133,6 +133,7 @@ feeeduploader import -c -f "filepath"
 
 ## Development Area
 
-> ⋅⋅* First Time used "Mock" and "xUnit" project to do the Unit testing using dependency Injection.
-> ⋅⋅* The "Command Builder" section can be created manually using the user input arguments and loop through the arugments to validate the Commands.
+> First Time used "Mock" and "xUnit" project to do the Unit testing using dependency Injection.
+
+> The "Command Builder" section can be created manually using the user input arguments and loop through the arugments to validate the Commands.
  
