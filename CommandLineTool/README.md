@@ -56,9 +56,58 @@ FeedUploaderCLI is a Command Line tool which can be used to upload/process setti
 ### 3. To pack the project for Nuget Release
 
 ``` bash
-` FeedUploader CLI > dotnet pack
+~ FeedUploader CLI > dotnet pack
+
+```
+
+### 4. To install the package globally on your machine
+
+``` bash
+
+~ FeedUploader CLI > dotnet tool list --Global 
+
+~ FeedUploader CLI > dotnetm tool install --global --add-source ./nupkg FeedUplaoderCLI
+
+```
+
+### 5. To uninstall the package globally from your machine
+
+``` bash
+~ FeedUploader CLI > dotnet tool list --global
+~ FeedUploader CLI > dotnet tool uninstall feeduploadercli --global
 
 ```
 
 
+
     
+## Running Tests
+
+### A. To run the test from Terminal without installing the package
+
+
+#### 1. For help document
+
+
+```bash
+  dotnet run -- --help
+
+```
+#### 2. Usage of Import Command to upload file from Capterra Service
+
+``` bash
+
+dotnet run -- import capterra --file "filepath"
+
+```
+
+
+## Packages Used to build the Project
+
+| **Package Name** | **Desciption**  |
+| ------ | ------ |
+| **System.CommandLine** | Used to create the Command Builder for the project |
+| **NewtonSoft.Json** | For serializing and Deserializing the Json File |
+| **Microsoft.Extensions.Logging** | Used Microsoft Logging Package |
+| **Microsoft.Extensions.DependencyInjection** | Tp use dependency Injection |
+| **YamlDotNet** | to Serialize and Deserialize the Yaml structured file |
