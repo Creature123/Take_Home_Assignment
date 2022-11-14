@@ -15,7 +15,7 @@ FeedUploaderCLI is a Command Line tool which can be used to upload/process setti
 ├── FeedUploader.Service                # All the Interfaces, Models, Implementations are here (Service Layer )
 |   ├── Implementations
 |   |   ├── CapterraService.cs          # Service layer for processing the file from site 'Capterra'          
-|   |   ├── DataReader.cs               # A generic Class Implementation for of IDataReader interface to process data in both 'Json' & 'yaml' format
+|   |   ├── DataReader.cs               # A generic Class Implementation for IDataReader interface to process data in both 'Json' & 'yaml' format
 |   |   └── SoftwareAdviceService.cs    # Service layer for processing the file from site 'SoftwareAdvice'   
 |   ├── Interfaces
 |   |   ├── ICapterraService.cs
