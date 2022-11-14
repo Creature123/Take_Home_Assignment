@@ -128,7 +128,7 @@ feeeduploader import -c -f "filepath"
 | **System.CommandLine** | Used to create the Command Builder for the project |
 | **NewtonSoft.Json** | For serializing and Deserializing the Json File |
 | **Microsoft.Extensions.Logging** | Used Microsoft Logging Package |
-| **Microsoft.Extensions.DependencyInjection** | Tp use dependency Injection |
+| **Microsoft.Extensions.DependencyInjection** | To use dependency Injection |
 | **YamlDotNet** | to Serialize and Deserialize the Yaml structured file |
 
 ## Development Area
