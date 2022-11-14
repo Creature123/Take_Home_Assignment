@@ -123,7 +123,7 @@ feeeduploader import -c -f "filepath"
 
 ## Packages Used to build the Project
 
-| **Package Name** | **Desciption**  |
+| **Package Name** | **Description**  |
 | ------ | ------ |
 | **System.CommandLine** | Used to create the Command Builder for the project |
 | **NewtonSoft.Json** | For serializing and Deserializing the Json File |
